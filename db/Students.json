@@ -1,0 +1,66 @@
+{
+  "listStudents": [
+    {
+      "username": "teonv",
+      "password": "iloveyou",
+      "fullname": "Nguyễn Văn Tèo",
+      "email": "teonv@fpt.edu.vn",
+      "gender": "true",
+      "birthday": "1995-12-21",
+      "schoolfee": "1500000",
+      "marks": "0",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "username": "pheonv",
+      "password": "iloveyou",
+      "fullname": "Nguyễn Văn Chí Phèo",
+      "email": "pheonv@fpt.edu.vn",
+      "gender": "true",
+      "birthday": "1985-10-11",
+      "schoolfee": "2500000",
+      "marks": "0"
+    },
+    {
+      "id": "3",
+      "username": "nopt",
+      "password": "iloveyou",
+      "fullname": "Phạm Thị Nở",
+      "email": "nopt@fpt.edu.vn",
+      "gender": "false",
+      "birthday": "1993-05-15",
+      "schoolfee": "2000000",
+      "marks": "0"
+    },
+    {
+      "id": "4",
+      "username": "phuong",
+      "password": "123456",
+      "email": "phuongvipxs@gmail.com"
+    },
+    {
+      "username": "phuong1",
+      "password": "123",
+      "email": "phuongvipxs@gmail.com",
+      "id": "J9xUfJV"
+    },
+    {
+      "username": "phuong",
+      "password": "123",
+      "email": "phuongvipxs@gmail.com",
+      "id": "1uYurf_"
+    },
+    {
+      "username": "demo",
+      "password": "123",
+      "fullname": "demo",
+      "email": "phuongwibu03@gmail.com",
+      "gender": "true",
+      "birthday": "2003-03-30",
+      "schoolfee": "140000000",
+      "image": "profile1.jpg",
+      "id": "2Nlc98a"
+    }
+  ]
+}

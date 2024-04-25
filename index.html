@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HTTP Course - Website thi trắc nghiệm</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="resource/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <!-- Code more css -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Thư viện AngularJS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+</head>
+
+<body id="page-top" ng-app="myApp">
+  <!-- Code Nav -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a href="#page-top" class="navbar-brand" id="logo">Trang chủ</a>
+      <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <!-- Thanh menu -->
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Thành phần navbar -->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!-- ms dùng để điều chỉnh margin tự động - margin starts -->
+        <ul class="navbar-nav ms-auto">
+          <!-- mx - margin left and right -->
+          <li class="nav-item mx-0 mx-lg-1">
+            <!-- py, px - padding top bottom, padding left right -->
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Danh mục</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <!-- py, px - padding top bottom, padding left right -->
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Giới thiệu</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Liên hệ</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <button id="gop-y" type="button" class="nav-link py-3 px-0 px-lg-3 rounded" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              GÓP Ý
+            </button>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#FAQ">Hỏi đáp</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <div class="dropdown">
+              <button class="nav-link py-3 px-0 px-lg-3 rounded dropbtn">
+                TÀI KHOẢN
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="signup.html" ng-show="student==null">Đăng ký</a>
+                <a href="login.html" ng-show="student==null">Đăng nhập</a>
+                <a href="forgotpass.html" ng-show="student==null">Quên mật khẩu</a>
+                <a href="" ng-click="logoff()" ng-hide="student==null">Đăng xuất</a>
+                <a href="changepasswords.html" ng-hide="student==null">Đổi mật khẩu</a>
+                <a href="profile.html" ng-hide="student==null">Cập nhật tài khoản</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Masthead - Tiêu đề-->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+      <!-- Masthead Avatar Image - Ảnh tiêu đề-->
+      <img class="masthead-avatar mb-5" src="resource/Images/avatar.svg" alt="..." />
+      <!-- Masthead Heading - Thân tiêu đề-->
+      <h1 class="masthead-heading text-uppercase mb-0">HTTP Course</h1>
+      <!-- Icon Divider - Icon kẻ-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Masthead Subheading - Tiêu đề-->
+      <p class="masthead-subheading font-weight-light mb-0">
+        Website thi trắc nghiệm các môn học lập trình
+      </p>
+    </div>
+  </header>
+  <!-- Portfolio Section - Danh mục-->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+      <!-- Portfolio Section Heading - Phần đầu danh mục-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="page-white">
+        Danh mục
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Portfolio Grid Items-->
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">Lập trình Android nâng cao</h1>
+          <p class="col-md-8 fs-4">
+            Tổng hợp các câu hỏi trắc nghiệm Android có đáp án đầy đủ nhằm
+            giúp các bạn ôn lại toàn bộ kiến thức.
+          </p>
+          <a href="http://127.0.0.1:5500/Assignment/portfolio.html#!/quiz/ADAV/L%E1%BA%ADp%20tr%C3%ACnh%20Android%20n%C3%A2ng%20cao"
+            type="button" id="listbtn" class="btn btn-primary btn-lg my-4" ng-hide="student==null">LÀM BÀI</a>
+          <a href="login.html" type="button" id="listbtn" class="btn btn-primary btn-lg my-4"
+            ng-show="student==null">Đăng nhập</a>
+        </div>
+      </div>
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>SQL Server</h2>
+            <p>
+              Tổng hợp 80 câu hỏi trắc nghiệm SQL Server có đáp án đầy đủ nhằm
+              giúp các bạn dễ dàng ôn tập lại toàn bộ kiến thức.
+            </p>
+            <a href="http://127.0.0.1:5500/Assignment/portfolio.html#!/quiz/DBAV/SQL%20Server" type="button"
+              id="listbtn" class="btn btn-primary btn-lg my-4" ng-hide="student==null">LÀM BÀI</a>
+            <a href="login.html" type="button" id="listbtn" class="btn btn-primary btn-lg my-4"
+              ng-show="student==null">Đăng nhập</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Cơ sở dữ liệu</h2>
+            <p>
+              Tổng hợp câu hỏi trắc nghiệm cơ sở dữ liệu nhằm giúp các bạn dễ
+              dàng ôn tập lại toàn bộ các kiến thức.
+            </p>
+            <a href="http://127.0.0.1:5500/Assignment/portfolio.html#!/quiz/DBBS/C%C6%A1%20s%E1%BB%9F%20d%E1%BB%AF%20li%E1%BB%87u"
+              type="button" id="listbtn" class="btn btn-primary btn-lg my-4" ng-hide="student==null">LÀM BÀI</a>
+            <a href="login.html" type="button" id="listbtn" class="btn btn-primary btn-lg my-4"
+              ng-show="student==null">Đăng nhập</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="portfolio.html" type="button" class="btn btn-primary btn-lg my-4">Xem chi tiết</a>
+      </div>
+    </div>
+  </section>
+  <!-- About Section - Phần chọn About-->
+  <section class="masthead bg-primary text-white text-center" id="about">
+    <div class="container">
+      <!-- About Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-white">
+        Giới thiệu
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- About Section Content-->
+      <div class="row">
+        <div class="col-lg-4 ms-auto">
+          <!-- Lead Làm cho một đoạn văn nổi bật -->
+          <p class="lead">
+            HTTP Course là hệ thống các bài trắc nghiệm online về tin học văn
+            phòng, tin học cơ bản, lập trình, quản trị hệ thống, chứng chỉ
+            quốc tế giúp các bạn ôn luyện và thi các chứng chỉ về CNTT.
+          </p>
+        </div>
+        <div class="col-lg-4 me-auto">
+          <p class="lead">
+            Website thi trắc nghiệm trực tuyến triển khai theo hình thức SPA
+            sử dụng công nghệ Bootstrap và AngularJS với các chức năng theo
+            yêu cầu
+          </p>
+        </div>
+      </div>
+      <!-- About Section Button-->
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" href="https://www.facebook.com/akashic.03">
+          <i class="fa-solid fa-address-card"></i>
+          About me!
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Section - Phần liên hệ-->
+  <section class="page-section" id="contact">
+    <div class="container">
+      <!-- Contact Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="page-white">
+        Liên hệ tôi
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Contact Section Form - Liên hệ form-->
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+          <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <!-- Name input-->
+            <div class="form-floating mb-3">
+              <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                data-sb-validations="required" />
+              <label for="name">Họ và tên</label>
+              <div class="invalid-feedback" data-sb-feedback="name:required">
+                Bắt buộc nhập tên.
+              </div>
+            </div>
+            <!-- Email address input-->
+            <div class="form-floating mb-3">
+              <input class="form-control" id="email" type="email" placeholder="name@example.com"
+                data-sb-validations="required,email" />
+              <label for="email">Địa chỉ email</label>
+              <div class="invalid-feedback" data-sb-feedback="email:required">
+                Bắt buộc nhập email.
+              </div>
+              <div class="invalid-feedback" data-sb-feedback="email:email">
+                Email không hợp lệ.
+              </div>
+            </div>
+            <!-- Phone number input-->
+            <div class="form-floating mb-3">
+              <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
+                data-sb-validations="required" />
+              <label for="phone">Số điện thoại</label>
+              <div class="invalid-feedback" data-sb-feedback="phone:required">
+                Bắt buộc nhập số điện thoại.
+              </div>
+            </div>
+            <!-- Message input-->
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
+                style="height: 10rem" data-sb-validations="required"></textarea>
+              <label for="message">Lời nhắn</label>
+              <div class="invalid-feedback" data-sb-feedback="message:required">
+                Bắt buộc nhập lời nhắn.
+              </div>
+            </div>
+            <!-- Submit success message-->
+            <!---->
+            <!-- This is what your users will see when the form - Biểu mẫu-->
+            <!-- has successfully submitted - thông báo thành công-->
+            <div class="d-none" id="submitSuccessMessage">
+              <div class="text-center mb-3">
+                <div class="fw-bolder">Gửi biểu mẫu thành công!</div>
+                To activate this form, sign up at
+                <br />
+                <a
+                  href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+              </div>
+            </div>
+            <!-- Submit error message-->
+            <!---->
+            <!-- This is what your users will see when there is-->
+            <!-- an error submitting the form-->
+            <div class="d-none" id="submitErrorMessage">
+              <div class="text-center text-danger mb-3">
+                Lỗi gửi tin nhắn!
+              </div>
+            </div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">
+              Gửi
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Phần góp ý -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">GÓP Ý KIẾN</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <input placeholder="Họ và tên" id="Name" type="text" class="form-control"
+                  data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="Name:required">
+                  Bắt buộc nhập họ và tên.
+                </div>
+              </div>
+              <div class="form-group col-sm-6">
+                <input placeholder="Số điện thoại" id="Phone" type="text" class="form-control"
+                  data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="Phone:required">
+                  Bắt buộc nhập số điện thoại.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <input placeholder="Email" type="text" id="Email" class="form-control" data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="Email:required">
+                  Bắt buộc nhập email.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <input placeholder="Địa chỉ" id="Location" type="text" class="form-control"
+                  data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="Location:required">
+                  Bắt buộc nhập địa chỉ.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <input placeholder="Chủ đề" if="Title" type="text" class="form-control"
+                  data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="Title:required">
+                  Bắt buộc nhập chủ đề.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <textarea placeholder="Nội dung" class="form-control" id="Noidung" rows="6"
+                  data-sb-validations="required"></textarea>
+                <div class="invalid-feedback" data-sb-feedback="Noidung:required">
+                  Bắt buộc nhập nội dung.
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save"
+              viewBox="0 0 16 16">
+              <path
+                d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+            </svg>
+            Gửi
+          </button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+            Hủy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Phần hỏi đáp -->
+  <section class="page-section" id="FAQ">
+    <div class="container">
+      <!-- FAQ Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-white mb-0">
+        Hỏi đáp
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Q&A Section Form - Hỏi đáp form-->
+      <p class="text-primary text-center mb-5">
+        Find the answers for the most frequently asked questions below
+      </p>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary">
+            <i class="far fa-paper-plane text-primary pe-2"></i> A simple
+            question?
+          </h6>
+          <p>
+            <strong><u>Absolutely!</u></strong> We work with top payment
+            companies which guarantees your safety and security. All billing
+            information is stored on our payment processing partner.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary">
+            <i class="fas fa-pen-alt text-primary pe-2"></i> A question that
+            is longer then the previous one?
+          </h6>
+          <p>
+            <strong><u>Yes, it is possible!</u></strong> You can cancel your
+            subscription anytime in your account. Once the subscription is
+            cancelled, you will not be charged next month.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary">
+            <i class="fas fa-user text-primary pe-2"></i> A simple question?
+          </h6>
+          <p>
+            Currently, we only offer monthly subscription. You can upgrade or
+            cancel your monthly account at any time with no further
+            obligation.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary">
+            <i class="fas fa-rocket text-primary pe-2"></i> A simple question?
+          </h6>
+          <p>
+            Yes. Go to the billing section of your dashboard and update your
+            payment information.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary">
+            <i class="fas fa-home text-primary pe-2"></i> A simple question?
+          </h6>
+          <p>
+            <strong><u>Unfortunately no</u>.</strong> We do not issue full or
+            partial refunds for any reason.
+          </p>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <h6 class="mb-3 text-primary">
+            <i class="fas fa-book-open text-primary pe-2"></i> Another
+            question that is longer than usual
+          </h6>
+          <p>
+            Of course! We’re happy to offer a free plan to anyone who wants to
+            try our service.
+          </p>
+        </div>
+        <p class="text-primary mb-3 text-center">
+          <span class="fw-bold">
+            Still have any questions? Contact us to get your answer!</span>
+        </p>
+        <div class="form-floating mb-3">
+          <input class="form-control" type="email" placeholder="Email address" data-sb-validations="required" />
+          <label for="email">Địa chỉ email</label>
+          <div class="invalid-feedback" data-sb-feedback="email.email">
+            Bắt buộc nhập tên.
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
+            style="height: 10rem" data-sb-validations="required"></textarea>
+          <label for="message">Lời nhắn</label>
+          <div class="invalid-feedback" data-sb-feedback="message:required">
+            Bắt buộc nhập lời nhắn.
+          </div>
+        </div>
+        <div class="row mb-3">
+          <button class="btn btn-primary" type="submit">Gửi</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer-->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <!-- Footer Location-->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Địa chỉ</h4>
+          <p class="lead mb-0">
+            Thanh Vinh 12, Hòa Khánh Bắc,
+            <br />
+            Liên Chiểu, Đà Nẵng
+          </p>
+        </div>
+        <!-- Footer Social Icons-->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Liên hệ với tôi</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/akashic.03"><i
+              class="fab fa-fw fa-facebook-f"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/reddragon3003"><i
+              class="fab fa-fw fa-twitter"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://discord.gg/uXahxQvg"><i
+              class="fa-brands fa-discord"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/hoangphuong.akashicc.203/"><i
+              class="fa-brands fa-instagram"></i></a>
+        </div>
+        <!-- Footer About Text-->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">Tổng quan trang website</h4>
+          <p class="lead mb-0">
+            Trang web Thế giới của Phương được xây dựng trong quá trình học
+            <a href="https://getbootstrap.com/">Bootstrap 5</a>
+            .
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Copyright Section-->
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Your Website 2023</small>
+    </div>
+  </div>
+  <script src="js/App/myApp.js"></script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Code more JavaScript -->
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>

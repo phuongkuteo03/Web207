@@ -1,0 +1,126 @@
+<div class="container">
+  <!-- Quizz Section Heading - Phần đầu câu hỏi-->
+  <h2
+    class="page-section-heading text-center text-uppercase text-secondary mb-0"
+    id="page-white"
+    style="padding-top: calc(6rem + 74px)">
+    Câu hỏi
+  </h2>
+  <!-- Icon Divider-->
+  <div class="divider-custom">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+    <div class="divider-custom-line"></div>
+  </div>
+  <div class="row" ng-show="!inProgess">
+    <div class="text-center">
+      <button
+        class="btn btn-primary mb-3"
+        ng-click="start()"
+        ng-show="!logined">
+        Start the Quiz
+      </button>
+      <a
+        href="login.html"
+        type="button"
+        class="btn btn-primary mb-3"
+        ng-show="logined"
+        >Login</a
+      >
+    </div>
+  </div>
+  <div class="row" ng-show="inProgess">
+    <div class="row" ng-show="quizOver">
+      <h3 class="text-center" style="color: red">Quiz kết thúc</h3>
+      <div class="col text-center">
+        <button
+          class="btn btn-primary"
+          ng-click="start()"
+          onclick="thoigian(600)">
+          Play again
+        </button>
+      </div>
+    </div>
+    <div ng-show="!quizOver">
+      <div class="row">
+        <div class="col text-center">
+          <h1>
+            <i class="fas fa-clock" style="color: #2c3e50"></i>
+            <span id="sophut"></span> : <span id="sogiay"></span>
+          </h1>
+        </div>
+      </div>
+      <div class="row"></div>
+      <article class="col-md">
+        <div
+          class="alert alert-secondary mt-3"
+          style="font-size: 20px"
+          role="alert">
+          <a href="index.html" style="text-decoration: none">Trang chủ</a> /
+          {{subjectName}}
+        </div>
+        <form>
+          <div class="card">
+            <div class="card-header text-center">
+              <div class="row">
+                <h5 class="col-10">{{subjectName}}</h5>
+                <span class="col-2 float-end">Câu: {{id}}</span>
+              </div>
+            </div>
+
+            <div class="card-body ml-5">
+              <div class="row">
+                <label for="" class="col-10">{{question}}</label>
+                <div class="col-2">
+                  <span class="float-end">Điểm: {{score}}/10</span>
+                </div>
+                <input type="hidden" id="myinput" value="{{quiz.AnswerId}}" />
+              </div>
+              <hr />
+              <div class="row" ng-repeat="option in options | limitTo:4:0">
+                <div class="form-checkbox" for="Radio1">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="answer"
+                    value="{{option.Id}}" />
+                  {{option.Text}}
+                </div>
+              </div>
+              <br />
+              <div ng-show="!answerMode">
+                <button
+                  class="btn btn-default bg-primary float-end ms-2"
+                  ng-click="next()">
+                  Tiếp
+                </button>
+                <span ng-show="correctAns">Đáp án chính xác!</span>
+                <span ng-show="!correctAns">Xin lỗi, đáp án sai!</span>
+              </div>
+              <div ng-show="answerMode">
+                <button
+                  class="btn btn-default bg-primary float-end"
+                  ng-click="checkAnswer()">
+                  Trả lời
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </article>
+      <!--Category-->
+      <div class="col-md mt-5 mb-4">
+        <div class="card-header mb-3" style="font-size: 25px">
+          <span class="glyphicon glyphicon-th-list"></span>
+          <strong style="font-size: 40px">Trắc nghiệm nổi bật</strong>
+        </div>
+
+        <div class="list-group" ng-controller="subjectCtrl">
+          <div ng-repeat="sub in list_subjects">
+            <a href="#" class="list-group-item">{{sub.Name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

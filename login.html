@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login - HTTP Course</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="resource/favicon.ico" />
+  <!-- Bootstrap CSS v5.2.1 -->
+  <style>
+    input.ng-invalid {
+      border-color: red;
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Thư viện AngularJS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+
+<body class="bg-secondary" ng-app="myapp">
+  <div class="modal modal-signin position-static d-block py-5" tabindex="-1" role="dialog" name="frmLogin" id="frmLogin"
+    ng-controller="loginCtrl">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+          <h1 class="fw-bold mb-0 fs-2">Vui lòng đăng nhập</h1>
+          <a type="button" href="index.html" class="btn-close" aria-label="Close"></a>
+        </div>
+        <div class="modal-body p-5 pt-0">
+          <form class="">
+            <div class="form-floating mb-3">
+              <input name="username" ng-model="username" type="text" class="form-control rounded-3"
+                id="floatingInputInvalid" placeholder="Tên đăng nhập" required />
+              <label for="floatingInputInvalid">Tên đăng nhập</label>
+              <span ng-hide="frmLogin.username.$invalid"></span>
+            </div>
+            <div class="form-floating mb-3">
+              <input name="password" type="password" ng-model="password" class="form-control rounded-3" id="inputPass"
+                placeholder="Mật khẩu" required />
+              <label for="inputPass">Mật khẩu</label>
+              <span ng-hide="frmLogin.password.$invalid"></span>
+            </div>
+            <a href="signup.html" style="text-decoration: none" class="float-start">
+              Đăng ký
+            </a>
+            <a href="forgotpass.html" style="text-decoration: none" class="float-end">
+              Quên mật khẩu?
+            </a>
+            <button class="w-100 my-2 btn btn-lg rounded-3 btn-primary" type="submit" ng-click="Login()">
+              Đăng nhập
+            </button>
+            <small class="text-muted">By clicking <strong>Đăng nhập</strong>, you agree to the terms
+              of use.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/App/loginCtrl.js"></script>
+  <script src="js/App/myApp.js"></script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

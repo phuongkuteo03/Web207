@@ -1,0 +1,56 @@
+<!-- Portfolio Section - Danh mục-->
+<section class="page-section portfolio" id="portfolio">
+  <div class="container">
+    <!-- Portfolio Section Heading - Phần đầu danh mục-->
+    <h2
+      class="page-section-heading text-center text-uppercase text-secondary mb-0"
+      id="page-white">
+      Danh mục
+    </h2>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Portfolio Grid Items-->
+    <div class="row">
+      <div class="container-fluid justify-content-center row subject_box">
+        <div
+          class="card col-lg-5 mt-4 me-4 shadow-lg border-0 rounded-10"
+          ng-repeat="sub in subjects">
+          <div class="card-body">
+            <h3 style="text-align: center">{{sub.Name}}</h3>
+          </div>
+          <div class="card-body subject_img">
+            <img
+              src="resource/logos/{{sub.Logo}}"
+              alt=""
+              class="mx-auto d-block" />
+          </div>
+          <div class="wrapbtnCourse card-body bg-white text-center">
+            <a
+              href="#!quiz/{{sub.Id}}/{{sub.Name}}"
+              type="button"
+              id="listbtn"
+              class="btn btn-primary rounded-5 border px-5 py-2"
+              style="font-size: larger"
+              ng-hide="student==null"
+              >LÀM BÀI</a
+            >
+            <a
+              href="login.html"
+              type="button"
+              id="listbtn"
+              class="btn btn-primary rounded-5 border px-5 py-2"
+              style="font-size: larger"
+              ng-show="student==null"
+              >Đăng nhập</a
+            >
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+</section>
